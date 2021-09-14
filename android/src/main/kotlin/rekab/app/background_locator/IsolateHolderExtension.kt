@@ -18,8 +18,6 @@ internal fun IsolateHolderService.startLocatorService(context: Context) {
     var callbackInfo: FlutterCallbackInformation? = null
     var args: DartExecutor.DartCallback? = null
 
-    context.d("startLocatorService")
-
     try {
         serviceStarted = AtomicBoolean(PreferencesManager.isServiceRunning(context))
         // start synchronized block to prevent multiple service instant
@@ -51,7 +49,6 @@ internal fun IsolateHolderService.startLocatorService(context: Context) {
                 args?.let {
                     IsolateHolderService.backgroundEngine?.dartExecutor?.executeDartCallback(it)
                 }
-                context.d("callbackHandle: $callbackHandle, callbackInfo: $callbackInfo, args: $args")
             }
         }
 

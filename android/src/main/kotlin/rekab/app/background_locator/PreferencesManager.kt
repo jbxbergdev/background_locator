@@ -206,5 +206,11 @@ class PreferencesManager {
             val type = object : TypeToken<Map<*, *>>() {}.type
             return Gson().fromJson(initialDataStr, type)
         }
+
+        @JvmStatic
+        fun isServiceRunning(context: Context): Boolean {
+            return context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+                .getBoolean(Keys.PREF_SERVICE_IS_RUNNING, false)
+        }
     }
 }
