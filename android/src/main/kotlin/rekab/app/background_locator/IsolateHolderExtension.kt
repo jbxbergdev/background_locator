@@ -18,7 +18,7 @@ internal fun IsolateHolderService.startLocatorService(context: Context) {
     var callbackInfo: FlutterCallbackInformation? = null
     var args: DartExecutor.DartCallback? = null
 
-    try {
+//    try {
         serviceStarted = AtomicBoolean(PreferencesManager.isServiceRunning(context))
         // start synchronized block to prevent multiple service instant
         synchronized(serviceStarted) {
@@ -57,14 +57,14 @@ internal fun IsolateHolderService.startLocatorService(context: Context) {
                 Keys.BACKGROUND_CHANNEL_ID)
         backgroundChannel.setMethodCallHandler(this)
 
-    } catch (throwable: Throwable) {
-        throw Exception(
-            "IsolateHolderService.startLocatorService was't successfull, " +
-                    "serviceStarted: $serviceStarted, callbackHandle: $callbackHandle, " +
-                    "callbackInfo: $callbackInfo, args: $args",
-            throwable
-        )
-    }
+//    } catch (throwable: Throwable) {
+//        throw Exception(
+//            "IsolateHolderService.startLocatorService was't successfull, " +
+//                    "serviceStarted: $serviceStarted, callbackHandle: $callbackHandle, " +
+//                    "callbackInfo: $callbackInfo, args: $args",
+//            throwable
+//        )
+//    }
 }
 
 
